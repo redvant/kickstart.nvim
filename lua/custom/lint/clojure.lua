@@ -1,0 +1,3 @@
+return {
+  clojure = { 'clj-kondo' },
+}
