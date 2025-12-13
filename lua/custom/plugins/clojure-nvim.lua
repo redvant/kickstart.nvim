@@ -28,4 +28,15 @@ return {
       vim.g['default_lein_task'] = 'repl :headless'
     end,
   },
+  {
+    'julienvincent/nvim-paredit',
+    config = function()
+      local paredit = require 'nvim-paredit'
+      paredit.setup {
+        keys = {
+          ['T'] = false,
+        },
+      }
+    end,
+  },
 }
