@@ -487,6 +487,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim [L]azy files' })
 
       require('custom.config.telescope.multigrep').setup()
+      require('custom.config.telescope.project_marks').setup()
     end,
   },
 
