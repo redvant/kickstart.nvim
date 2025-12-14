@@ -166,6 +166,10 @@ vim.o.scrolloff = 10
 -- See `:help 'confirm'`
 vim.o.confirm = true
 
+-- Enable project-local configuration
+vim.o.exrc = true
+vim.o.secure = true
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -487,6 +491,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim [L]azy files' })
 
       require('custom.config.telescope.multigrep').setup()
+      require('custom.config.telescope.project_marks').setup()
     end,
   },
 
