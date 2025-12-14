@@ -43,4 +43,19 @@ function M.builder(modname)
   return result
 end
 
+---Returns project root directory or current working directoy if doesn't found the root
+---@return string?
+function M.get_project_root()
+  local project_markers = { '.git', '.nvim.lua' }
+  vim.list_extend(project_markers, M.loader 'custom.project-markers')
+
+  local root = vim.fs.root(0, project_markers)
+
+  if root then
+    return root
+  end
+
+  return vim.uv.cwd()
+end
+
 return M
