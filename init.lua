@@ -195,6 +195,16 @@ vim.keymap.set('n', '<leader>T', function()
   vim.cmd 'tab terminal'
 end, { desc = 'Open [T]erminal in new tab' })
 
+-- Copy buffer path
+-- Full path
+vim.keymap.set('n', '<leader>pcf', function()
+  vim.fn.setreg('+', vim.fn.expand '%:p')
+end, { desc = 'Copy full path' })
+-- Relative path
+vim.keymap.set('n', '<leader>pcr', function()
+  vim.fn.setreg('+', vim.fn.expand '%')
+end, { desc = 'Copy relative path' })
+
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
