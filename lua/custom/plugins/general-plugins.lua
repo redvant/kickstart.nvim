@@ -1,5 +1,12 @@
 return {
   'tpope/vim-dispatch',
+  {
+    'tpope/vim-fugitive',
+    keys = {
+      { '<leader>gs', '<cmd>Git<CR>', desc = '[G]it [S]tatus' },
+      { '<leader>gb', '<cmd>Git blame<CR>', desc = '[G]it [B]lame' },
+    },
+  },
   'HiPhish/rainbow-delimiters.nvim',
   {
     'MeanderingProgrammer/render-markdown.nvim',
