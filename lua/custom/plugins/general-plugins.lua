@@ -7,6 +7,14 @@ return {
       { '<leader>gb', '<cmd>Git blame<CR>', desc = '[G]it [B]lame' },
     },
   },
+  {
+    'tpope/vim-rhubarb',
+    dependencies = { 'tpope/vim-fugitive' },
+    keys = {
+      { '<leader>gw', '<cmd>GBrowse<CR>', desc = '[G]it Bro[w]se' },
+      { '<leader>gW', '<cmd>.GBrowse<CR>', desc = '[G]it Bro[w]se to current line' },
+    },
+  },
   'HiPhish/rainbow-delimiters.nvim',
   {
     'MeanderingProgrammer/render-markdown.nvim',
