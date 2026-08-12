@@ -56,6 +56,11 @@ return {
           end
         end,
       })
+
+      -- Toogle diagnostics
+      vim.keymap.set('n', '<leader>td', function()
+        vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+      end, { desc = '[T]oggle [d]iagnostics' })
     end,
   },
 }
