@@ -2,6 +2,7 @@ local pickers = require 'telescope.pickers'
 local finders = require 'telescope.finders'
 local conf = require('telescope.config').values
 local utils = require 'telescope.utils'
+local action_state = require 'telescope.actions.state'
 
 local M = {}
 
@@ -63,6 +64,30 @@ local function filter_project_marks(opts)
       },
       sorter = conf.generic_sorter(opts),
       previewer = conf.grep_previewer(opts),
+      attach_mappings = function(prompt_bufnr, map)
+        local delete_mark = function()
+          local current_picker = action_state.get_current_picker(prompt_bufnr)
+
+          -- Iterates over each selection
+          current_picker:delete_selection(function(selection)
+            local mark = selection.value.mark:gsub("'", '')
+            local success = vim.api.nvim_del_mark(mark)
+            if success then
+              return true
+            else
+              return false
+            end
+          end)
+        end
+
+        map('i', '<A-d>', delete_mark)
+        map('n', 'd', delete_mark)
+
+        -- Returning true tells Telescope to keep the default bindings
+        -- (like <CR> to select, <Esc> to close). If you return false,
+        -- ONLY your custom bindings will work.
+        return true
+      end,
     })
     :find()
 end
