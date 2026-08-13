@@ -1,9 +1,13 @@
+---Opens the result of thing in a new buffer
+---Usage:
+---:lua P_BUF(vim.lsp.get_active_clients())
 function _G.P_BUF(thing)
   local inspected_string = vim.inspect(thing)
   local lines = vim.split(inspected_string, '\n')
 
-  -- Create a new buffer in a new split
-  vim.cmd 'new'
+  -- Create a new scratch buffer in a new split
+  local scratch_buf = vim.api.nvim_create_buf(true, true)
+  vim.api.nvim_open_win(scratch_buf, true, { split = 'below' })
 
   -- Set filetype to Lua for syntax highlighting
   vim.bo.filetype = 'lua'
