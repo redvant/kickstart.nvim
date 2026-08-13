@@ -3,7 +3,7 @@ return {
     'mfussenegger/nvim-dap',
     config = function()
       local dap = require 'dap'
-      local custom_dap = require('custom.utils').builder 'custom.dap'
+      local custom_dap = require('custom.utils').builder('custom.dap', LANGUAGES_ENABLED)
       dap.configurations = custom_dap.configurations
       dap.adapters = custom_dap.adapters
 

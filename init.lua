@@ -170,6 +170,9 @@ vim.o.confirm = true
 vim.o.exrc = true
 vim.o.secure = true
 
+-- load globals
+require 'custom.globals'
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -767,7 +770,7 @@ require('lazy').setup({
       -- vim.list_extend(ensure_installed, {
       --   'stylua', -- Used to format Lua code
       -- })
-      local ensure_installed = utils.loader 'custom.tools'
+      local ensure_installed = utils.loader('custom.tools', LANGUAGES_ENABLED)
 
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -815,7 +818,7 @@ require('lazy').setup({
       --   -- You can use 'stop_after_first' to run the first available formatter from the list
       --   -- javascript = { "prettierd", "prettier", stop_after_first = true },
       -- },
-      formatters_by_ft = utils.builder 'custom.format',
+      formatters_by_ft = utils.builder('custom.format', LANGUAGES_ENABLED),
     },
   },
 
@@ -1050,9 +1053,6 @@ require('lazy').setup({
     },
   },
 })
-
--- load globals
-require 'custom.globals'
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

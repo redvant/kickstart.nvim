@@ -12,5 +12,5 @@ function _G.P_BUF(thing)
   vim.api.nvim_buf_set_lines(0, 0, -1, true, lines)
 end
 
--- Usage:
--- :lua P_BUF(vim.lsp.get_active_clients())
+local languages = { 'lua', 'go', 'clojure', 'dart', 'markdown' }
+_G.LANGUAGES_ENABLED = require('custom.utils').new_Set(languages)
