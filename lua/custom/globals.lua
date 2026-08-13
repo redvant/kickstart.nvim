@@ -18,5 +18,5 @@ end
 
 local languages = {}
 -- List the languages that you want to enable
--- languages = { 'lua', 'go', 'clojure', 'dart', 'markdown' }
+languages = { 'lua', 'go', 'clojure', 'dart', 'markdown' }
 _G.LANGUAGES_ENABLED = require('custom.utils').new_Set(languages)
