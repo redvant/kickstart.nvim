@@ -67,10 +67,13 @@ function M.get_project_root()
 end
 
 ---Builds a set from an array table
----@param array table<any>
+---@param array table<any>|nil
 ---@return table<any, true>
 function M.new_Set(array)
   local set = {}
+  if array == nil then
+    return set
+  end
   for _, pair in ipairs(array) do
     set[pair] = true
   end
