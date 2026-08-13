@@ -16,6 +16,7 @@ function _G.P_BUF(thing)
   vim.api.nvim_buf_set_lines(0, 0, -1, true, lines)
 end
 
+local languages = {}
 -- List the languages that you want to enable
-local languages = { 'lua', 'go', 'clojure', 'dart', 'markdown' }
+-- languages = { 'lua', 'go', 'clojure', 'dart', 'markdown' }
 _G.LANGUAGES_ENABLED = require('custom.utils').new_Set(languages)
