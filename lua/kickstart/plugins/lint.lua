@@ -1,7 +1,7 @@
 return {
 
   { -- Linting
-    url = 'https://codeberg.org/redvant/nvim-lint.git',
+    'mfussenegger/nvim-lint',
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
       local lint = require 'lint'
